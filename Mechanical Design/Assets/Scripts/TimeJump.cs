@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TimeJump : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class TimeJump : MonoBehaviour
     public float teleport_value;
     public Vector3 teleport_present;
     public Vector3 teleport_past;
+    public Image time_image;
     //PlayerController playerController;
 
     private void Start()
@@ -26,8 +28,13 @@ public class TimeJump : MonoBehaviour
         {
             StartCoroutine(can_Teleport());
             StartCoroutine(Teleportation());
-
         }
+        time__control__increase();
+
+    }
+    private void LateUpdate()
+    {
+        
     }
     IEnumerator can_Teleport()
     {
@@ -37,7 +44,7 @@ public class TimeJump : MonoBehaviour
     }
     IEnumerator Teleportation()
     {
-        
+        time_image.fillAmount =0;
         if (time_period_flag == 0)
         {
             
@@ -62,6 +69,19 @@ public class TimeJump : MonoBehaviour
             yield break;
         }
         
+    }
+    void time__control__increase()
+    {
+        //Debug.Log("Increase Abilty");
+        time_image.fillAmount += (teleportation_timer / 100)*Time.deltaTime;
+        if (time_image.fillAmount < 1)
+        {
+            can_teleport = false;
+        }
+        else if (time_image.fillAmount == 1)
+        {
+            can_teleport = true;
+        }
     }
 
 }
