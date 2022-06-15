@@ -22,8 +22,6 @@ public class ArrayCheck : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        
-
         if (other.tag == "item")
         {
             objects__in__array.Add(other.gameObject);
