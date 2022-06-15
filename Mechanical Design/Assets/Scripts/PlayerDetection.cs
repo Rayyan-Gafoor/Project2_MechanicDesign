@@ -31,7 +31,7 @@ public class PlayerDetection : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("Rayyan").transform;
+        player = GameObject.Find("ValveMC").transform;
         respawn = player.GetComponent<RespawnScript>();
         shadow__walk = player.GetComponent<ShadowWalk>();
 
@@ -61,7 +61,7 @@ public class PlayerDetection : MonoBehaviour
     {
         Vector3 player__dir = transform.position - player.position;
         angle = Vector3.Angle(transform.forward, player__dir);
-        if(Mathf.Abs(angle) > 120 && Mathf.Abs(angle) < 270)
+        if(Mathf.Abs(angle) > 90 && Mathf.Abs(angle) < 270)
         {
             Debug.DrawLine(transform.position, player.position, Color.red);
             return true;
@@ -74,7 +74,7 @@ public class PlayerDetection : MonoBehaviour
         Vector3 player__dir = player.position - transform.position;
         if(Physics.Raycast(transform.position, player__dir, out hit, 50000f))
         {
-            if(hit.transform.name == "Rayyan")
+            if(hit.transform.name == "ValveMC")
             {
                 Debug.DrawLine(transform.position, player.position, Color.yellow);
                 return true;
