@@ -29,7 +29,7 @@ public class ArrayCheck : MonoBehaviour
             objects__in__array.Add(other.gameObject);
         }
     }
-
+    
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "item")
@@ -39,18 +39,19 @@ public class ArrayCheck : MonoBehaviour
     }
     void check__items()
     {
-        //Debug.Log("function is starting");
-        for (int i = 0; i < objects__in__array.Count-1; i++)
+        Debug.Log("function is starting");
+        for (int i = 0; i < objects__in__array.Count; i++)
         {
-            //Debug.Log("function is in first phase");
-            for (int j = 0; j < required__objects.Count -1; j++)
+            Debug.Log("function is in first phase");
+            for (int j = 0; j < required__objects.Count; j++)
             {
                 Debug.Log(required__objects[j].gameObject.name);
-                Debug.Log(objects__in__array[j].gameObject.name);
+                Debug.Log(objects__in__array[i].gameObject.name);
 
                 //Debug.Log("function is in second phase");
-                if (required__objects[j].gameObject.name == objects__in__array[i].gameObject.name)
+                if (required__objects[j].gameObject.name == objects__in__array[i].gameObject.name && flag>0)
                 {
+                    flag=flag-1;
                     StartCoroutine(flagset());
                     Debug.Log("checked");
                 }
@@ -62,8 +63,10 @@ public class ArrayCheck : MonoBehaviour
 
     IEnumerator flagset()
     {
-        flag--;
+       
         yield return new WaitForSeconds(0.2f);
+        Debug.Log("Flag Decrease");
+        flag--;
         if (flag == 0)
         {
             stop__flag = 1;

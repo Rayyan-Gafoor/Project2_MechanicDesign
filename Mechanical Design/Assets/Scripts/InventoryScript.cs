@@ -9,6 +9,10 @@ public class InventoryScript : MonoBehaviour
     public float shrink__size;
     public bool hand__full = false;
     Rigidbody rb;
+    public bool can__pick;
+    public Transform player;
+    public float reach__distance;
+    public LayerMask item__mask;
     //[SerializeField] GameObject temp__item;
 
     // Start is called before the first frame update
@@ -20,10 +24,12 @@ public class InventoryScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       // can__pick = Physics.CheckSphere(player.position, reach__distance, item__mask);
         if (Input.GetKeyDown(KeyCode.Q) && hand__full == true)
         {
             drop__item();
         }
+       
     }
     private void OnTriggerStay(Collider other)
     {
