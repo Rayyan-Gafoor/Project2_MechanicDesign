@@ -37,7 +37,7 @@ public class InventoryScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) && hand__full==false)
             {
                 pickup__item(other.gameObject);
-                Debug.Log("Can Pick Up");
+                //Debug.Log("Can Pick Up");
             }
         }
        
@@ -61,7 +61,7 @@ public class InventoryScript : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezePosition;
         
         item.GetComponent<Collider>().enabled = false;
-        Debug.Log("item in Hand");
+        //Debug.Log("item in Hand");
         //Debug.Log(hand.get)
     }
     void drop__item()
@@ -75,7 +75,7 @@ public class InventoryScript : MonoBehaviour
         child.GetComponent<Collider>().enabled = true;
         child.transform.parent = null;
         hand__full = false;
-        Debug.Log("item Dropped");
+       // Debug.Log("item Dropped");
 
     }
 }
