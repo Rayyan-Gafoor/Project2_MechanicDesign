@@ -10,8 +10,10 @@ public class PlayerDetection : MonoBehaviour
     public enemy__type EnemyType;
  
     //Enemy Scout Ai parameters
-    Transform player;
+    public GameObject player;
+    public Transform target;
     [SerializeField] float angle;
+    [SerializeField] float p_vision = 90;
     [SerializeField] float playerRange;
 
     //Enemy Scout Type Rotation parameters
@@ -31,7 +33,8 @@ public class PlayerDetection : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("ValveMC").transform;
+       
+       // target = GameObject.Find("target").transform;
         respawn = player.GetComponent<RespawnScript>();
         shadow__walk = player.GetComponent<ShadowWalk>();
 
@@ -59,18 +62,18 @@ public class PlayerDetection : MonoBehaviour
     #region Enemy Detection Functions
     bool player__infront()
     {
-        Vector3 player__dir = transform.position - player.position;
+        Vector3 player__dir = transform.position - player.transform.position;
         angle = Vector3.Angle(transform.forward, player__dir);
-        if(Mathf.Abs(angle) > 90 && Mathf.Abs(angle) < 270)
+        if(Mathf.Abs(angle) > p_vision && Mathf.Abs(angle) < 270)
         {
-            Debug.DrawLine(transform.position, player.position, Color.red);
+            Debug.DrawLine(transform.position, player.transform.position, Color.red);
             return true;
         }
         return false;
     }
     bool player__insight()
     {
-        RaycastHit hit;
+        /*RaycastHit hit;
         Vector3 player__dir = player.position - transform.position;
         if(Physics.Raycast(transform.position, player__dir, out hit, 50000f))
         {
@@ -79,13 +82,26 @@ public class PlayerDetection : MonoBehaviour
                 Debug.DrawLine(transform.position, player.position, Color.yellow);
                 return true;
             }
+        }*/
+        RaycastHit hit;
+        Vector3 player__dir = target.position - transform.position;
+       
+        if (Physics.Raycast(transform.position, player__dir, out hit, 50000f))
+        {
+            
+            if (hit.collider.transform == target)
+            {
+                //Debug.DrawLine(transform.position, target.position, Color.green);
+                Debug.DrawLine(transform.position, target.position, Color.yellow);
+                return true;
+            }
         }
         return false;
     }
     bool player__inrange()
     {
         float current__dis;
-        current__dis = Vector3.Distance(transform.position, player.position);
+        current__dis = Vector3.Distance(transform.position, player.transform.position);
         if(current__dis< playerRange)
         {
             return true;
