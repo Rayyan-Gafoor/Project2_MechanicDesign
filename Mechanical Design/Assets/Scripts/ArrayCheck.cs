@@ -7,7 +7,7 @@ public class ArrayCheck : MonoBehaviour
 {
     public List<GameObject> objects__in__array = new List<GameObject>();
     public List<GameObject> required__objects = new List<GameObject>();
-    
+    public GameObject text;
     public GameObject puzzel__items;
     //Text text;
     public int flag = 1;
@@ -16,6 +16,7 @@ public class ArrayCheck : MonoBehaviour
     private void Start()
     {
         puzzel__items.GetComponent<TMPro.TextMeshProUGUI>().text = objects__in__array.Count.ToString();
+        text.SetActive(false);
         flag = required__objects.Count;
         if (puzzel__items == null)
         {
@@ -34,6 +35,7 @@ public class ArrayCheck : MonoBehaviour
     {
         if (other.tag == "item")
         {
+            text.SetActive(true);
             objects__in__array.Add(other.gameObject);
         }
     }

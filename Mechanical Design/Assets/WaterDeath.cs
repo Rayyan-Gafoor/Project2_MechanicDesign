@@ -16,7 +16,7 @@ public class WaterDeath : MonoBehaviour
     {
         if (other.tag=="Player")
         {
-            respawn.is__dead = true;
+            StartCoroutine(respawn.respawn__player());
         }
         
     }

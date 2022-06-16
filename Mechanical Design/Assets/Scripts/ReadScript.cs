@@ -6,6 +6,7 @@ public class ReadScript : MonoBehaviour
 {
     public int flag = 0;
     public GameObject temp__letter;
+    public GameObject pickup__ui;
     public bool can__read = false;
     private void Start()
     {
@@ -16,7 +17,8 @@ public class ReadScript : MonoBehaviour
         Debug.Log("intrigger");
         if (other.tag == "Player")
         {
-            can__read = true;
+            pickup__ui.SetActive(true);
+               can__read = true;
             if (Input.GetKey(KeyCode.E) && flag==0)
             {
                 StartCoroutine(read());
@@ -32,6 +34,7 @@ public class ReadScript : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         can__read = true;
+        pickup__ui.SetActive(false);
         if (other.tag == "Player")
         {
             temp__letter.SetActive(false);

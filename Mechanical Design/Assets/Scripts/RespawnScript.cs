@@ -27,7 +27,7 @@ public class RespawnScript : MonoBehaviour
             
         }
     }
-    IEnumerator respawn__player()
+    public IEnumerator respawn__player()
     {
         transform.position = checkpoint.transform.position;
         is__dead = false;
