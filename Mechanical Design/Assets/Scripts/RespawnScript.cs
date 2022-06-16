@@ -19,16 +19,12 @@ public class RespawnScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (is__dead && life__count> 0)
+        if (is__dead)
         {
             //Debug.Log("player respawn");
             
             StartCoroutine(respawn__player());
             
-        }
-        if(is__dead && life__count < 0)
-        {
-            Debug.Log("Game Over");
         }
     }
     IEnumerator respawn__player()
@@ -36,7 +32,7 @@ public class RespawnScript : MonoBehaviour
         transform.position = checkpoint.transform.position;
         is__dead = false;
         time__jump.time_period_flag = 0;
-        life__count = life__count - 1;
+        //life__count = life__count - 1;
         
         
         yield break;

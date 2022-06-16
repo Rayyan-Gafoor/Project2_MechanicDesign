@@ -17,16 +17,13 @@ public class ReadScript : MonoBehaviour
         if (other.tag == "Player")
         {
             can__read = true;
-            if (Input.GetKeyDown(KeyCode.E) && flag==0)
+            if (Input.GetKey(KeyCode.E) && flag==0)
             {
-                Debug.Log("reading");
-                temp__letter.SetActive(true);
-                flag = 1;
+                StartCoroutine(read());
             }
-            else if(Input.GetKeyDown(KeyCode.E) && flag == 1)
+            else if(Input.GetKey(KeyCode.E) && flag == 1)
             {
-                temp__letter.SetActive(false);
-                flag = 0;
+                StartCoroutine(close());
             }
 
         }
@@ -40,5 +37,21 @@ public class ReadScript : MonoBehaviour
             temp__letter.SetActive(false);
             flag = 0;
         }
+    }
+    IEnumerator read()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log("reading");
+        temp__letter.SetActive(true);
+        flag = 1;
+        
+    }
+    IEnumerator close()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log("close letter");
+        temp__letter.SetActive(false);
+        flag = 0;
+       
     }
 }
