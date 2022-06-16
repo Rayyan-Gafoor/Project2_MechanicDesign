@@ -1,20 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ArrayCheck : MonoBehaviour
 {
     public List<GameObject> objects__in__array = new List<GameObject>();
     public List<GameObject> required__objects = new List<GameObject>();
+    
+    public GameObject puzzel__items;
+    //Text text;
     public int flag = 1;
     public int stop__flag = 0;
 
     private void Start()
     {
+        puzzel__items.GetComponent<TMPro.TextMeshProUGUI>().text = objects__in__array.Count.ToString();
         flag = required__objects.Count;
+        if (puzzel__items == null)
+        {
+            return;
+        }
     }
     private void FixedUpdate()
     {
+        puzzel__items.GetComponent<TMPro.TextMeshProUGUI>().text = objects__in__array.Count.ToString();
         if (objects__in__array.Count >= required__objects.Count && stop__flag==0)
         {
             check__items();
