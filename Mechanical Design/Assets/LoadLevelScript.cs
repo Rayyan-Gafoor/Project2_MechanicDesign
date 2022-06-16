@@ -17,7 +17,11 @@ public class LoadLevelScript : MonoBehaviour
     }
     public void LoadLevelOne()
     {
-        SceneManager.LoadScene(sceneName: "");
+        SceneManager.LoadScene(sceneName: "SampleScene");
+    }
+    public void quit()
+    {
+        Application.Quit();
     }
     
 }
