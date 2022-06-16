@@ -13,6 +13,8 @@ public class TimeJump : MonoBehaviour
     public Vector3 teleport_present;
     public Vector3 teleport_past;
     public Image time_image;
+    public Material skypresent;
+    public Material skypast;
     //PlayerController playerController;
 
     private void Start()
@@ -30,6 +32,7 @@ public class TimeJump : MonoBehaviour
             StartCoroutine(Teleportation());
         }
         time__control__increase();
+        update__sky();
 
     }
     private void LateUpdate()
@@ -82,6 +85,18 @@ public class TimeJump : MonoBehaviour
         {
             can_teleport = true;
         }
+    }
+    void update__sky()
+    {
+        if(time_period_flag == 0)
+        {
+            RenderSettings.skybox = skypresent;
+        }
+        else
+        {
+            RenderSettings.skybox = skypast;
+        }
+       
     }
 
 }

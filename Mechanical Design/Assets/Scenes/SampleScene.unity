@@ -41017,7 +41017,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.0408806, y: -0.000000005360925, z: -1.3239512e-10, w: 0.99916404}
+  m_LocalRotation: {x: -0.0408806, y: -0.0000000053609255, z: -1.3239508e-10, w: 0.99916404}
   m_LocalPosition: {x: -66.97, y: 5.5, z: -5.6400003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -47642,6 +47642,8 @@ MonoBehaviour:
   teleport_present: {x: 0, y: 0, z: 0}
   teleport_past: {x: 0, y: 0, z: 0}
   time_image: {fileID: 1922191941}
+  skypresent: {fileID: 0}
+  skypast: {fileID: 0}
 --- !u!114 &1236635433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71731,7 +71733,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761974413}
-  m_LocalRotation: {x: -0.040880598, y: -0.000000004297999, z: -1.7585179e-10, w: 0.99916404}
+  m_LocalRotation: {x: -0.040880598, y: -0.0000000042979997, z: -1.758518e-10, w: 0.99916404}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -87201,7 +87203,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033225702}
-  m_LocalRotation: {x: -0.0120561905, y: 5.376603e-10, z: 6.4826057e-12, w: 0.99992734}
+  m_LocalRotation: {x: -0.01205619, y: -5.376603e-10, z: -6.4826057e-12, w: 0.99992734}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -91356,6 +91358,8 @@ MonoBehaviour:
   teleport_present: {x: 0, y: 0, z: 0}
   teleport_past: {x: 0, y: 0, z: 0}
   time_image: {fileID: 1922191941}
+  skypresent: {fileID: 0}
+  skypast: {fileID: 0}
 --- !u!114 &7625711390316027779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91601,6 +91605,8 @@ MonoBehaviour:
   teleport_present: {x: 0, y: 0, z: 0}
   teleport_past: {x: 0, y: 0, z: 0}
   time_image: {fileID: 1922191941}
+  skypresent: {fileID: 2100000, guid: 20f6d22d93779de4ea6f62f8ab305593, type: 2}
+  skypast: {fileID: 2100000, guid: 7ed994c1997814049b44c36a823bba6c, type: 2}
 --- !u!114 &8669808977802163196
 MonoBehaviour:
   m_ObjectHideFlags: 0
