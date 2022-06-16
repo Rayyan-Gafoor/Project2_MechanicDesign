@@ -30,6 +30,7 @@ public class PlayerDetection : MonoBehaviour
     //respawn script to trigger players death
     RespawnScript respawn;
     ShadowWalk shadow__walk;
+    WaypointMover waypoint;
 
     private void Start()
     {
@@ -37,6 +38,7 @@ public class PlayerDetection : MonoBehaviour
        // target = GameObject.Find("target").transform;
         respawn = player.GetComponent<RespawnScript>();
         shadow__walk = player.GetComponent<ShadowWalk>();
+        waypoint = GetComponent<WaypointMover>();
 
     }
     private void Update()
@@ -49,11 +51,13 @@ public class PlayerDetection : MonoBehaviour
         if (player__infront() && player__insight() && player__inrange() && !shadow__walk.is__shadow)
         {
             detection__control__increase();
+            waypoint.is__patrolling = false;
             //Increase Detection Meter.
             Debug.Log("Oh No The Enemy Is Onto You");
         }
         else
         {
+            waypoint.is__patrolling = true;
             detection__control__decrease();
         }
         //enemy Scout
