@@ -29,9 +29,12 @@ public class RespawnScript : MonoBehaviour
     }
     public IEnumerator respawn__player()
     {
-        transform.position = checkpoint.transform.position;
-        is__dead = false;
         time__jump.time_period_flag = 0;
+        Debug.Log("respawn");
+        transform.position = checkpoint.transform.position;
+        
+        is__dead = false;
+        
         //life__count = life__count - 1;
         
         

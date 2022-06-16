@@ -6,8 +6,28 @@ using UnityEngine.UI;
 
 public class LoadLevelScript : MonoBehaviour
 {
-  
-    
+
+    public GameObject controls;
+    public GameObject credits;
+
+    private void Start()
+    {
+        if (controls == null)
+        {
+            return;
+        }
+        if (credits == null)
+        {
+            return;
+        }
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(sceneName: "Title");
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.name== "ValveMC")
@@ -23,5 +43,20 @@ public class LoadLevelScript : MonoBehaviour
     {
         Application.Quit();
     }
-    
+    public void back()
+    {
+        controls.SetActive(false);
+        credits.SetActive(false);
+    }
+    public void credit()
+    {
+       // controls.SetActive(false);
+        credits.SetActive(true);
+    }
+    public void control()
+    {
+        controls.SetActive(true);
+        //credits.SetActive(false);
+    }
+
 }
